@@ -2,6 +2,7 @@ execute pathogen#infect()
 
 filetype plugin indent on
 syntax on
+colorscheme neodark
 
 set nocompatible
 set encoding=utf-8
@@ -44,7 +45,7 @@ if &term =~ '^screen'
     set ttymouse=xterm2
 endif
 
-let g:airline_theme='base16'
+let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = ['branch', 'ctrlp']
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
@@ -92,24 +93,10 @@ let g:UltiSnipsExpandTrigger="<C-k>"
 let g:UltiSnipsJumpForwardTrigger="<C-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
-if has('gui_running')
-  colorscheme basic-dark
-else
-  colorscheme neodark
-endif
-
-hi NonText guifg=bg
 hi CursorLineNr guifg=#0088cc
-highlight LineNr guifg=#3d5c5c
+hi LineNr guifg=#3d5c5c
 hi Normal ctermbg=none
 hi CursorLine ctermbg=none
-
-if bufwinnr(1)
-  map <S-Right> <C-W>>
-  map <S-Left> <C-W><
-  map <S-Up> <C-W>+
-  map <S-Down> <C-W>-
-endif
 
 " The Silver Searcher
 if executable('ag')
