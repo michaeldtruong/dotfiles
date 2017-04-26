@@ -39,13 +39,14 @@ set pastetoggle=<F2>
 set ttyfast
 set ttyscroll=3
 set lazyredraw
+set noshowmode
 
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
 endif
 
-let g:airline_theme='bubblegum'
+let g:airline_theme='starfall'
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = ['branch', 'ctrlp']
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
