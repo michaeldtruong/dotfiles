@@ -50,6 +50,7 @@ let g:airline_theme='starfall'
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = ['branch', 'ctrlp']
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#extensions#ctrlp#color_template = 'normal'
 
 let mapleader = ","
 let mapleader = "\<Space>"
@@ -85,8 +86,15 @@ let NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen = 1
 let g:loaded_matchparen=1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|public'
-let g:ctrlp_extensions = ['line']
 let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_prompt_mappings = {
+      \ 'ToggleType(1)':        ['<tab>', '<c-up>'],
+      \ 'PrtExpandDir()':       [],
+      \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
+      \ 'PrtCurLeft()':         ['<left>'],
+      \ 'PrtCurRight()':        ['<right>'],
+      \}
+
 let g:user_emmet_expandabbr_key = '<C-e>'
 let g:user_emmet_next_key = '<C-l>'
 let g:user_emmet_prev_key = '<C-h>'
