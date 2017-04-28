@@ -86,7 +86,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias mvim="open -a macvim"
 alias vim="stty -ixon; vim"
 alias tm="tmux"
 alias ta="tmux attach"
