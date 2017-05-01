@@ -93,3 +93,4 @@ alias la="ls -A"
 alias ll="ls -la"
 alias ld="ls -d */"
 
+jcr() { javac $1.java && java $1 }
