@@ -104,6 +104,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 hi CursorLineNr guifg=#0088cc
 hi LineNr guifg=#3d5c5c
+hi NonText guifg=bg
 hi Normal ctermbg=none
 hi CursorLine ctermbg=none
 
