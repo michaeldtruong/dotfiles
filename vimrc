@@ -40,6 +40,7 @@ set ttyfast
 set ttyscroll=3
 set lazyredraw
 set noshowmode
+set nocursorline
 
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
@@ -64,7 +65,7 @@ nmap <Space><CR> o<Esc>k
 nmap <Space><S-Enter> O<Esc>j
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-nnoremap <silent> <F1> :%s;^\(\s\+\);\=repeat(' ', len(submatch(0))/2);g<cr>:nohl<cr> 
+nnoremap <silent> <F10> :%s;^\(\s\+\);\=repeat(' ', len(submatch(0))/2);g<cr>:nohl<cr> 
 nnoremap <silent> <F12> :%s/^\s*/&&<cr>:nohl<cr>
 nnoremap <F3> :set hlsearch!<CR>
 
@@ -106,7 +107,7 @@ hi CursorLineNr guifg=#0088cc
 hi LineNr guifg=#3d5c5c
 hi NonText guifg=bg
 hi Normal ctermbg=none
-hi CursorLine ctermbg=none
+" hi CursorLine ctermbg=none
 
 " The Silver Searcher
 if executable('ag')
@@ -122,3 +123,13 @@ endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+fu! ToggleCurline ()
+  if &cursorcolumn
+    set nocursorcolumn
+  else
+    set cursorcolumn
+  endif
+endfunction
+
+map <silent><F1> :call ToggleCurline()<CR>
