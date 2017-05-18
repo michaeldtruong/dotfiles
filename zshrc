@@ -88,9 +88,10 @@ source $ZSH/oh-my-zsh.sh
 
 alias vim="stty -ixon; vim"
 alias tm="tmux"
-alias ta="tmux attach"
+alias ta="tmux attach -t"
 alias la="ls -A"
 alias ll="ls -la"
 alias ld="ls -d */"
+alias new-static="cp -r ~/Development/start-templates/new-static/. ."
 
 jcr() { javac $1.java && java $1 }

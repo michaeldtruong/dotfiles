@@ -89,12 +89,12 @@ let g:loaded_matchparen=1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|public'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_prompt_mappings = {
-      \ 'ToggleType(1)':        ['<tab>', '<c-up>'],
-      \ 'PrtExpandDir()':       [],
-      \ 'ToggleType(-1)':       ['<c-b>', '<c-down>'],
-      \ 'PrtCurLeft()':         ['<left>'],
-      \ 'PrtCurRight()':        ['<right>'],
-      \}
+  \ 'ToggleType(1)': ['<tab>', '<c-up>'],
+  \ 'PrtExpandDir()': [],
+  \ 'ToggleType(-1)': ['<c-b>', '<c-down>'],
+  \ 'PrtCurLeft()': ['<left>'],
+  \ 'PrtCurRight()': ['<right>'],
+  \}
 
 let g:user_emmet_expandabbr_key = '<C-e>'
 let g:user_emmet_next_key = '<C-l>'
@@ -107,7 +107,6 @@ hi CursorLineNr guifg=#0088cc
 hi LineNr guifg=#3d5c5c
 hi NonText guifg=bg
 hi Normal ctermbg=none
-" hi CursorLine ctermbg=none
 
 " The Silver Searcher
 if executable('ag')
@@ -132,4 +131,4 @@ fu! ToggleCurline ()
   endif
 endfunction
 
-map <silent><F1> :call ToggleCurline()<CR>
+map <silent><F4> :call ToggleCurline()<CR>
