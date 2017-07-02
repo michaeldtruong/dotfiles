@@ -103,6 +103,8 @@ let g:UltiSnipsExpandTrigger="<C-k>"
 let g:UltiSnipsJumpForwardTrigger="<C-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
+let g:jsx_ext_required = 0
+
 hi CursorLineNr guifg=#0088cc
 hi LineNr guifg=#3d5c5c
 hi NonText guifg=bg
