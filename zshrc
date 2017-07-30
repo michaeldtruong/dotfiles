@@ -95,6 +95,6 @@ alias ld="ls -d */"
 
 function giteasy() {
   git add .
-  git commit -a -m "$1"
+  git commit -m "$*"
   git push
 }
