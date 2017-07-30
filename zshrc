@@ -87,11 +87,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vim="stty -ixon; vim"
-alias tm="tmux"
+alias tm="tmux new -s"
 alias ta="tmux attach -t"
 alias la="ls -A"
 alias ll="ls -la"
 alias ld="ls -d */"
-alias new-static="cp -r ~/Development/start-templates/new-static/. ."
 
-jcr() { javac $1.java && java $1 }
+function giteasy() {
+  git add .
+  git commit -a -m "$1"
+  git push
+}

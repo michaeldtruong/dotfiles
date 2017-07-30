@@ -42,6 +42,8 @@ set lazyredraw
 set noshowmode
 set nocursorline
 
+autocmd BufRead,BufNewFile *.blade.php set filetype=html
+
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
