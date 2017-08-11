@@ -85,9 +85,9 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden= 1
 let g:NERDTreeQuitOnOpen = 1
-let g:loaded_matchparen=1
+let g:loaded_matchparen= 1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|public'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_prompt_mappings = {
@@ -106,6 +106,7 @@ let g:UltiSnipsJumpForwardTrigger="<C-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 let g:jsx_ext_required = 0
+let g:vue_disable_pre_processors= 1
 
 hi CursorLineNr guifg=#0088cc
 hi LineNr guifg=#3d5c5c
