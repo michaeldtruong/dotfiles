@@ -2,6 +2,9 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/php5/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/michaeltruong/.oh-my-zsh
@@ -10,6 +13,44 @@ export ZSH=/Users/michaeltruong/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="spaceship"
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  # hg            # Mercurial section (hg_branch  + hg_status)
+  # package       # Package version
+  # node          # Node.js section
+  # ruby          # Ruby section
+  # elixir        # Elixir section
+  # xcode         # Xcode section
+  # swift         # Swift section
+  # golang        # Go section
+  # php           # PHP section
+  # rust          # Rust section
+  # haskell       # Haskell Stack section
+  # julia         # Julia section
+  # docker        # Docker section
+  # aws           # Amazon Web Services section
+  # venv          # virtualenv section
+  # conda         # conda virtualenv section
+  # pyenv         # Pyenv section
+  # dotnet        # .NET section
+  # ember         # Ember.js section
+  # kubecontext   # Kubectl context section
+  # terraform     # Terraform workspace section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+SPACESHIP_CHAR_SYMBOL="❯ "
+SPACESHIP_DIR_COLOR="cyan"
+SPACESHIP_GIT_BRANCH_COLOR="magenta"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -93,8 +134,13 @@ alias la="ls -A"
 alias ll="ls -la"
 alias ld="ls -d */"
 
+function gitpulldown() {
+  git checkout $1
+  branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+  git checkout -b ${branch}-michael
+}
+
 function giteasy() {
-  git add .
+  git add -A
   git commit -m "$*"
-  git push
 }

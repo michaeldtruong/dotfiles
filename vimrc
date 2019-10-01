@@ -1,4 +1,21 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/ctrlp.vim'
+Plug 'mattn/emmet-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'michaeldtruong/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'pangloss/vim-javascript'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'posva/vim-vue'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
 
 filetype plugin indent on
 syntax on
@@ -9,6 +26,7 @@ set encoding=utf-8
 set fileencodings=utf8,cp1251
 set backspace=indent,eol,start
 set t_Co=256
+set autoread
 set hlsearch
 set incsearch
 set ignorecase
@@ -41,6 +59,7 @@ set ttyscroll=3
 set lazyredraw
 set noshowmode
 set nocursorline
+set regexpengine=1
 
 autocmd BufRead,BufNewFile *.blade.php set filetype=html
 
@@ -48,6 +67,8 @@ if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
 endif
+
+set completeopt-=preview
 
 let g:airline_theme='starfall'
 let g:airline_powerline_fonts = 1
@@ -57,6 +78,9 @@ let g:airline#extensions#ctrlp#color_template = 'normal'
 
 let mapleader = ","
 let mapleader = "\<Space>"
+
+let g:vue_pre_processors = ['scss']
+let g:vue_pre_processors = 'detect_on_enter'
 
 nmap Q <nop>
 nmap <Space> <nop>
@@ -88,6 +112,7 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 let NERDTreeShowHidden= 1
 let g:NERDTreeQuitOnOpen = 1
 let g:loaded_matchparen= 1
+let g:ctrlp_dont_split = 'nerdtree'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|public'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_prompt_mappings = {
@@ -98,6 +123,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtCurRight()': ['<right>'],
   \}
 
+let g:user_emmet_leader_key = '<F6>'
 let g:user_emmet_expandabbr_key = '<C-e>'
 let g:user_emmet_next_key = '<C-l>'
 let g:user_emmet_prev_key = '<C-h>'
@@ -106,7 +132,6 @@ let g:UltiSnipsJumpForwardTrigger="<C-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 let g:jsx_ext_required = 0
-let g:vue_disable_pre_processors= 1
 
 hi CursorLineNr guifg=#0088cc
 hi LineNr guifg=#3d5c5c
@@ -137,3 +162,16 @@ fu! ToggleCurline ()
 endfunction
 
 map <silent><F4> :call ToggleCurline()<CR>
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
